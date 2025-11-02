@@ -1,0 +1,48 @@
+
+body.light {
+  background-color: #f8f9fa;
+  color: #212529;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*Dark Theme */
+body.dark {
+  background-color: #121212;
+  color: #f8f9fa;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Form elements adapt to theme */
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background-color: #1e1e1e;
+  color: #f8f9fa;
+  border: 1px solid #444;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #aaa;
+}
+
+/* Card, form, and container backgrounds */
+body.dark .bg-light,
+body.dark .form-control,
+body.dark .form-select,
+body.dark .card,
+body.dark .shadow-sm,
+body.dark .border {
+  background-color: #1e1e1e !important;
+  color: #f8f9fa !important;
+  border-color: #444 !important;
+}
+
+/* Button hover styling */
+body.dark .btn-outline-light:hover,
+body.light .btn-outline-d
+ark:hover {
+  background-color: currentColor;
+  color: #fff !important;
+  border-color: currentColor;
+}
