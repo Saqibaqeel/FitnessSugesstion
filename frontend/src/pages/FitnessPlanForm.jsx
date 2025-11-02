@@ -30,7 +30,7 @@ const FitnessPlanForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:3000/diet/diet-suggestion", formData);
+      const res = await axios.post("https://fitnesssugesstion-1.onrender.com/diet/diet-suggestion", formData);
       setPlan(res.data.dietPlan || res.data.plan || "No plan generated");
     } catch (error) {
       alert("Error: " + (error.response?.data?.message || error.message));
