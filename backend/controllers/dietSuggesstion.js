@@ -22,15 +22,14 @@ const fitnessPlanService = async (req, res) => {
       stressLevel,
     } = req.body;
 
-    // ✅ Validate required fields
+   
     if (!age || !gender || !fitnessGoal || !dietaryPreference) {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
-    // 🧠 AI Prompt: request diet, workout & motivation plan
     const prompt = `
 You are a certified fitness coach and nutritionist.
-Generate a **personalized 1-day plan** for the following person:
+Generate a **personalized 7-day plan** for the following person:
 
 Name: ${name || "User"}
 Age: ${age}
@@ -62,7 +61,7 @@ Provide three sections in your response:
 Keep the response well-formatted, easy to read, and in clear bullet points.
 `;
 
-    // ⚙️ Generate content using Gemini
+  
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash", // or gemini-1.5-pro if available
       contents: [{ role: "user", parts: [{ text: prompt }] }],
@@ -72,7 +71,7 @@ Keep the response well-formatted, easy to read, and in clear bullet points.
       response.candidates?.[0]?.content?.parts?.[0]?.text ||
       "No response generated.";
 
-    // ✅ Respond with full structured plan
+   
     res.status(200).json({
       message: "AI-powered fitness plan generated successfully",
       plan: resultText,
